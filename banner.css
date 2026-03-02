@@ -1,0 +1,45 @@
+/* Banner – fixed in middle, row of cards scrolls left together */
+.banner {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  background: transparent;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.banner-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0; /* no gap between duplicated rows so loop is seamless */
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.banner-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-shrink: 0;
+  padding: 0 3rem;
+}
+
+/* Move by exactly one row width (-50% of track) so when it loops to 0% the duplicate row is in the same place = no visible reset */
+@keyframes scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

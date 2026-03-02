@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="card.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* Page: white; logo in a fixed element so it stays put on scroll (works on mobile) */
-        body {
+        /* iOS Safari: body must not scroll; only .scroll-wrap scrolls so .bg-logo (sibling) stays fixed */
+        html, body {
             margin: 0;
-            min-height: 100vh;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
             background-color: #fff;
         }
         .bg-logo {
@@ -26,6 +28,19 @@
             background-size: 50%;
             z-index: 0;
             pointer-events: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .scroll-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            z-index: 1;
         }
         .main {
             min-height: 100vh;
@@ -33,7 +48,6 @@
             padding-bottom: 80px;
             background: transparent;
             position: relative;
-            z-index: 1;
         }
         .main-content {
             min-height: 200vh;
@@ -42,6 +56,7 @@
 </head>
 <body>
     <div class="bg-logo" aria-hidden="true"></div>
+    <div class="scroll-wrap">
     <header class="header">
         <nav>
             <ul class="navbar">
@@ -179,5 +194,6 @@
     <footer class="footer">
         <p style="margin: 0; padding: 1rem 2rem; text-align: center;">&copy; Bentonville Bicycle Co</p>
     </footer>
+    </div>
 </body>
 </html>

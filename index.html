@@ -10,22 +10,30 @@
     <link rel="stylesheet" href="card.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* Page: white background; logo stays fixed when user scrolls */
+        /* Page: white; logo in a fixed element so it stays put on scroll (works on mobile) */
         body {
             margin: 0;
             min-height: 100vh;
             background-color: #fff;
-            background-image: url('background.png');
-            background-position: center;
-            background-repeat: no-repeat;
+        }
+        .bg-logo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.png') center no-repeat;
             background-size: 50%;
-            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
         }
         .main {
             min-height: 100vh;
             padding-top: 80px;
             padding-bottom: 80px;
             background: transparent;
+            position: relative;
+            z-index: 1;
         }
         .main-content {
             min-height: 200vh;
@@ -33,6 +41,7 @@
     </style>
 </head>
 <body>
+    <div class="bg-logo" aria-hidden="true"></div>
     <header class="header">
         <nav>
             <ul class="navbar">

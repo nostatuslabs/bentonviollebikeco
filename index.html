@@ -10,18 +10,22 @@
     <link rel="stylesheet" href="card.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* Page: white background for PNG; use background.png (export from background.psd in Photoshop) */
+        /* Page: white background; logo stays fixed when user scrolls */
         body {
             margin: 0;
-            background: #fff;
             min-height: 100vh;
+            background-color: #fff;
+            background-image: url('background.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-attachment: fixed;
         }
         .main {
             min-height: 100vh;
             padding-top: 80px;
             padding-bottom: 80px;
-            background: #fff url('background.png') center no-repeat fixed;
-            background-size: 50%;
+            background: transparent;
         }
         .main-content {
             min-height: 200vh;

@@ -1,0 +1,74 @@
+/* Top bar – black, white text, vertical separators, icons (like Poison Spider) */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: #000;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.topbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 1rem;
+  padding: 0.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topbar-left {
+  white-space: nowrap;
+}
+
+.topbar-left strong {
+  font-weight: 700;
+}
+
+.topbar-sep {
+  width: 1px;
+  height: 12px;
+  background: #fff;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.topbar-center,
+.topbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.topbar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.topbar-icon svg {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .topbar-inner {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar-sep {
+    display: none;
+  }
+  .topbar-inner {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+}

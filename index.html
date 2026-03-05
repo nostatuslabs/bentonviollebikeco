@@ -3,197 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bentonville Bike Co</title>
+    <title>Bentonville Bike Co | Bike Shop | Rentals | Sales</title>
+    <link rel="stylesheet" href="topbar.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="banner.css">
+    <link rel="stylesheet" href="sections.css">
     <link rel="stylesheet" href="card.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* iOS Safari: body must not scroll; only .scroll-wrap scrolls so .bg-logo (sibling) stays fixed */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
             background-color: #fff;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        .bg-logo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('background.png') center no-repeat;
-            background-size: 50%;
-            z-index: 0;
-            pointer-events: none;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-        .scroll-wrap {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow-y: auto;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-            z-index: 1;
-        }
-        .main {
-            min-height: 100vh;
-            padding-top: 80px;
-            padding-bottom: 80px;
-            background: transparent;
-            position: relative;
-        }
-        .main-content {
-            min-height: 200vh;
+        body {
+            padding-top: 120px; /* topbar + header height */
         }
     </style>
 </head>
 <body>
-    <div class="bg-logo" aria-hidden="true"></div>
-    <div class="scroll-wrap">
-    <header class="header">
-        <nav>
-            <ul class="navbar">
-                <li><a href="#" class="btn-96"><span>Home</span></a></li>
-                <li><a href="#" class="btn-96"><span>Shop</span></a></li>
-                <li><a href="#" class="btn-96"><span>About</span></a></li>
-                <li><a href="#" class="btn-96"><span>Contact</span></a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="banner">
-        <div class="banner-track">
-            <div class="banner-images">
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="Kali1.jpg" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 1</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="newsmith1.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 2</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="radio1.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 3</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="smith2.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 4</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="https://placehold.co/200x140?text=Image" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 5</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="https://placehold.co/200x140?text=Image" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 6</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-images" aria-hidden="true">
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="Kali1.jpg" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 1</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="newsmith1.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 2</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="radio1.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 3</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="smith2.png" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 4</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="https://placehold.co/200x140?text=Image" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 5</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front-content"><img src="https://placehold.co/200x140?text=Image" alt=""></div>
-                        <div class="content">
-                            <p class="heading">Card 6</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipii voluptas ten mollitia pariatur odit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Top bar: black, promo | phone+address | email with icons -->
+    <div class="topbar">
+        <div class="topbar-inner">
+            <span class="topbar-left"><strong>FREE SHIPPING</strong> on online orders over $80+</span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-center">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                479-268-8704
+            </span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-center">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
+                100 North Main, Bentonville AR 72712
+            </span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-right">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                shop@bentonvillebikeco.com
+            </span>
         </div>
     </div>
 
-    <main class="main">
-        <div class="main-content">
-            <!-- Page content scrolls behind header, banner, and footer -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark">Bentonville Bike Co</span>
+                <span class="logo-place">Bentonville AR</span>
+            </a>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="#rentals" class="active">Rentals</a></li>
+                    <li><a href="#service">Service</a></li>
+                    <li><a href="#sales">Bike Sales</a></li>
+                    <li><a href="#store" class="has-dropdown">Online Store <span class="nav-chevron" aria-hidden="true">▼</span></a></li>
+                    <li><a href="#info" class="has-dropdown">Shop Info <span class="nav-chevron" aria-hidden="true">▼</span></a></li>
+                    <li><a href="#riding" class="has-dropdown">Riding Info <span class="nav-chevron" aria-hidden="true">▼</span></a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="hero-bg" style="background-image: url('Kali.jpg');"></div>
+            <div class="hero-content">
+                <p class="hero-tagline">Bentonville's Widest Selection of Brands & Sizes</p>
+                <h1 class="hero-title">Ride The Best<br>Bicycles On Earth</h1>
+                <div class="hero-buttons">
+                    <a href="#sales" class="hero-btn">Buy a Bike</a>
+                    <a href="#rentals" class="hero-btn">Rent a Bike</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro block -->
+        <section class="intro">
+            <div class="intro-inner">
+                <h2>Bentonville's Premier Mountain Bike Rentals & Full-Service Shop</h2>
+                <p class="intro-lead">We have the largest selection of bike rentals in Bentonville!</p>
+                <p>Since 2010, Bentonville Bike Co has been the area's trusted source for mountain bike rentals, professional service, and expert local trail advice. Located on Main Street in the heart of Bentonville, we offer the largest selection of rental bikes featuring premium brands.</p>
+                <p><strong>Winter hours 9am–6pm</strong></p>
+            </div>
+        </section>
+
+        <!-- Promo strip: Spring Thaw Sale -->
+        <section class="promo-strip">
+            <h2 class="promo-strip-title">Spring Thaw Sale!</h2>
+            <div class="promo-tiles">
+                <a href="#sales" class="promo-tile">
+                    <div class="promo-tile-img" style="background-image: url('https://placehold.co/400x220?text=Bike+Sales');"></div>
+                    <span class="promo-tile-label">Bike Sales Special</span>
+                </a>
+                <a href="#rentals" class="promo-tile">
+                    <div class="promo-tile-img" style="background-image: url('https://placehold.co/400x220?text=Bike+Rentals');"></div>
+                    <span class="promo-tile-label">Bike Rentals</span>
+                </a>
+                <a href="#service" class="promo-tile">
+                    <div class="promo-tile-img" style="background-image: url('https://placehold.co/400x220?text=Bike+Tune');"></div>
+                    <span class="promo-tile-label">Bike Tune</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Quick links -->
+        <section class="quick-links">
+            <div class="quick-links-inner">
+                <a href="#rentals" class="quick-link">Rent a Bike</a>
+                <a href="#store" class="quick-link">Online Store</a>
+                <a href="#riding" class="quick-link">Trails</a>
+                <a href="#sales" class="quick-link">Buy a Bike</a>
+                <a href="#service" class="quick-link">Service</a>
+                <a href="#info" class="quick-link">Shuttles</a>
+            </div>
+        </section>
+
+        <!-- Brands -->
+        <section class="brands">
+            <h3 class="brands-title">BRANDS WE CARRY</h3>
+            <div class="brands-logos">
+                <img src="https://placehold.co/140x60?text=Trek" alt="Trek">
+                <img src="https://placehold.co/140x60?text=Santa+Cruz" alt="Santa Cruz">
+                <img src="https://placehold.co/140x60?text=Mondraker" alt="Mondraker">
+            </div>
+        </section>
+
+        <!-- Rental lineup grid -->
+        <section class="rental-lineup" id="rentals">
+            <h2 class="section-title">Explore Our Rental Lineup</h2>
+            <div class="rental-grid">
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Orbea+RISE" alt=""></div>
+                    <h4>Orbea RISE LT H20</h4>
+                    <p>Powerful, Versatile, Innovative</p>
+                </a>
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Mondraker" alt=""></div>
+                    <h4>Mondraker Crafty Race</h4>
+                    <p>Forward geometry, more stability</p>
+                </a>
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Ibis+Ripley" alt=""></div>
+                    <h4>Ibis Ripley Carbon</h4>
+                    <p>More travel, slack geometry</p>
+                </a>
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Santa+Cruz" alt=""></div>
+                    <h4>Santa Cruz Hightower</h4>
+                    <p>Big on wheels, short on fuss</p>
+                </a>
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Trek+Fuel" alt=""></div>
+                    <h4>Trek Fuel EX 7</h4>
+                    <p>Big suspension, ready to fly</p>
+                </a>
+                <a href="#" class="rental-card">
+                    <div class="rental-card-img"><img src="https://placehold.co/300x200?text=Bronson" alt=""></div>
+                    <h4>Santa Cruz Bronson</h4>
+                    <p>Rides fast, goes big</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Ride to Buy -->
+        <section class="ride-to-buy">
+            <div class="ride-to-buy-inner">
+                <h2>With Our Ride-To-Buy Program</h2>
+                <p class="ride-to-buy-tagline">Try Before You Buy</p>
+                <a href="#info" class="ride-to-buy-btn">Learn more</a>
+            </div>
+        </section>
+
+        <!-- Visit Us -->
+        <section class="visit" id="contact">
+            <h2 class="section-title">Visit Us!</h2>
+            <div class="visit-inner">
+                <div class="visit-info">
+                    <p>Spring and Fall – 8 am – 7 pm daily<br>Winter/Summer: 9 am – 6 pm</p>
+                    <p><strong>Shop Address:</strong><br>100 N. Main St.<br>Bentonville, AR 72712 USA</p>
+                    <p><a href="#">Directions to the shop</a><br><a href="#">Shuttle Parking and Pickup</a></p>
+                    <p class="visit-phone">479-268-8704</p>
+                    <a href="#contact" class="visit-contact-btn">Contact Bentonville Bike Co</a>
+                </div>
+                <div class="visit-map">
+                    <img src="https://placehold.co/600x400?text=Map+Placeholder" alt="Map">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        <p style="margin: 0; padding: 1rem 2rem; text-align: center;">&copy; Bentonville Bicycle Co</p>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Service, Sales, Rentals</h4>
+                <ul>
+                    <li><a href="#store">Online Store</a></li>
+                    <li><a href="#sales">Bikes For Sale</a></li>
+                    <li><a href="#rentals">Bike Rentals</a></li>
+                    <li><a href="#service">Service Your Bike</a></li>
+                    <li><a href="#info">Shuttle Service</a></li>
+                    <li><a href="#info">Ride To Buy Program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#info">Bike Shop Information</a></li>
+                    <li><a href="#riding">Current Trail Conditions</a></li>
+                    <li><a href="#riding">Mountain Biking in Bentonville</a></li>
+                    <li><a href="#riding">Road Riding Info</a></li>
+                    <li><a href="#riding">Events</a></li>
+                    <li><a href="#info">Rental Policy</a></li>
+                    <li><a href="#info">FAQ's</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p>Bentonville Bike Co<br>100 N. Main St.<br>Bentonville, AR 72712<br>479-268-8704 | <a href="#contact">Contact</a></p>
+                <p><strong>Join our mailing list!</strong></p>
+                <form class="footer-newsletter" action="#" method="post">
+                    <input type="email" placeholder="Email" aria-label="Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; Bentonville Bike Co
+        </div>
     </footer>
-    </div>
 </body>
 </html>

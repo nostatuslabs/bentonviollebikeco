@@ -1,0 +1,287 @@
+{
+  "brands": {
+    "logos": [
+      {
+        "alt": "Trek",
+        "image": "https://placehold.co/140x60?text=Trek",
+        "link": ""
+      },
+      {
+        "alt": "Santa Cruz",
+        "image": "https://placehold.co/140x60?text=Santa+Cruz",
+        "link": ""
+      },
+      {
+        "alt": "Mondraker",
+        "image": "https://placehold.co/140x60?text=Mondraker",
+        "link": ""
+      }
+    ],
+    "title": "BRANDS WE CARRY"
+  },
+  "footer": {
+    "address_block": "Bentonville Bike Co100 N. Main St.Bentonville, AR 72712479-268-8704 | Contact",
+    "columns": [
+      {
+        "links": [
+          {
+            "href": "#store",
+            "text": "Online Store"
+          },
+          {
+            "href": "#sales",
+            "text": "Bikes For Sale"
+          },
+          {
+            "href": "#rentals",
+            "text": "Bike Rentals"
+          },
+          {
+            "href": "#service",
+            "text": "Service Your Bike"
+          },
+          {
+            "href": "#info",
+            "text": "Shuttle Service"
+          },
+          {
+            "href": "#info",
+            "text": "Ride To Buy Program"
+          }
+        ],
+        "title": "Service, Sales, Rentals"
+      },
+      {
+        "links": [
+          {
+            "href": "#info",
+            "text": "Bike Shop Information"
+          },
+          {
+            "href": "#riding",
+            "text": "Current Trail Conditions"
+          },
+          {
+            "href": "#riding",
+            "text": "Mountain Biking in Bentonville"
+          },
+          {
+            "href": "#riding",
+            "text": "Road Riding Info"
+          },
+          {
+            "href": "#riding",
+            "text": "Events"
+          },
+          {
+            "href": "#info",
+            "text": "Rental Policy"
+          },
+          {
+            "href": "#info",
+            "text": "FAQ's"
+          }
+        ],
+        "title": "Information"
+      },
+      {
+        "links": [],
+        "title": "Connect"
+      }
+    ],
+    "copyright": "© Bentonville Bike Co",
+    "newsletter_heading": "Join our mailing list!"
+  },
+  "header": {
+    "logo_href": "#",
+    "logo_line1": "Bentonville Bike Co",
+    "logo_line2": "Bentonville AR",
+    "nav_items": [
+      {
+        "active": true,
+        "children": [],
+        "href": "#rentals",
+        "label": "Rentals"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#service",
+        "label": "Service"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#sales",
+        "label": "Bike Sales"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#store",
+        "label": "Online Store"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#info",
+        "label": "Shop Info"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#riding",
+        "label": "Riding Info"
+      },
+      {
+        "active": false,
+        "children": [],
+        "href": "#contact",
+        "label": "Contact Us"
+      }
+    ]
+  },
+  "hero": {
+    "background_image": "Kali.jpg",
+    "button1_href": "#sales",
+    "button1_text": "Buy a Bike",
+    "button2_href": "#rentals",
+    "button2_text": "Rent a Bike",
+    "tagline": "Bentonville's Widest Selection of Brands & Sizes",
+    "title": "Ride The BestBicycles On Earth"
+  },
+  "intro": {
+    "heading": "Bentonville hello Premier Mountain Bike Rentals & Full-Service Shopsssss",
+    "hours": "Winter hours 9am–6pm",
+    "lead": "We have the largest selection of bike rentals in Bentonville!",
+    "paragraphs": [
+      "Since 2010, Bentonville Bike Co has been the area's trusted source for mountain bike rentals, professional service, and expert local trail advice. Located on Main Street in the heart of Bentonville, we offer the largest selection of rental bikes featuring premium brands."
+    ]
+  },
+  "meta": {
+    "title": "Bentonville Bike Co | Bike Shop | Rentals | Sales"
+  },
+  "promo_strip": {
+    "tiles": [
+      {
+        "href": "#sales",
+        "image": "https://placehold.co/400x220?text=Bike+Sales",
+        "label": "Bike Sales Special"
+      },
+      {
+        "href": "#rentals",
+        "image": "https://placehold.co/400x220?text=Bike+Rentals",
+        "label": "Bike Rentals"
+      },
+      {
+        "href": "#service",
+        "image": "https://placehold.co/400x220?text=Bike+Tune",
+        "label": "Bike Tune"
+      }
+    ],
+    "title": "Spring Thaw Sale!"
+  },
+  "quick_links": [
+    {
+      "href": "#rentals",
+      "text": "Rent a Bike"
+    },
+    {
+      "href": "#store",
+      "text": "Online Store"
+    },
+    {
+      "href": "#riding",
+      "text": "Trails"
+    },
+    {
+      "href": "#sales",
+      "text": "Buy a Bike"
+    },
+    {
+      "href": "#service",
+      "text": "Service"
+    },
+    {
+      "href": "#info",
+      "text": "Shuttles"
+    }
+  ],
+  "rental_section": {
+    "cards": [
+      {
+        "description": "Powerful, Versatile, Innovative",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Orbea+RISE",
+        "title": "Orbea RISE LT H20"
+      },
+      {
+        "description": "Forward geometry, more stability",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Mondraker",
+        "title": "Mondraker Crafty Race"
+      },
+      {
+        "description": "More travel, slack geometry",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Ibis+Ripley",
+        "title": "Ibis Ripley Carbon"
+      },
+      {
+        "description": "Big on wheels, short on fuss",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Santa+Cruz",
+        "title": "Santa Cruz Hightower"
+      },
+      {
+        "description": "Big suspension, ready to fly",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Trek+Fuel",
+        "title": "Trek Fuel EX 7"
+      },
+      {
+        "description": "Rides fast, goes big",
+        "href": "#",
+        "image": "https://placehold.co/300x200?text=Bronson",
+        "title": "Santa Cruz Bronson"
+      }
+    ],
+    "inventory_category": "rental",
+    "inventory_ids": [],
+    "max_items": 6,
+    "title": "Explore Our Rental Lineup",
+    "use_inventory": false
+  },
+  "ride_to_buy": {
+    "button_href": "#info",
+    "button_text": "Learn more",
+    "heading": "With Our Ride-To-Buy Program",
+    "tagline": "Try Before You Buy"
+  },
+  "topbar": {
+    "address": "100 North Main, Bentonville AR 72712",
+    "email": "shop@bentonvillebikeco.com",
+    "phone": "479-268-8704",
+    "promo": "FREE SHIPPING on online orders over $80+",
+    "visible": true
+  },
+  "visit": {
+    "address_block": "Shop Address:100 N. Main St.Bentonville, AR 72712 USA",
+    "cta_href": "#contact",
+    "cta_text": "Contact Bentonville Bike Co",
+    "hours": "Spring and Fall – 8 am – 7 pm dailyWinter/Summer: 9 am – 6 pm",
+    "links": [
+      {
+        "href": "#",
+        "text": "Directions to the shop"
+      },
+      {
+        "href": "#",
+        "text": "Shuttle Parking and Pickup"
+      }
+    ],
+    "map_image": "https://placehold.co/600x400?text=Map+Placeholder",
+    "phone": "479-268-8704",
+    "title": "Visit Us!"
+  }
+}

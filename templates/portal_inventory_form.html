@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if item %}Edit{% else %}Add{% endif %} inventory item</title>
+    <style>
+        body { font-family: system-ui, sans-serif; padding: 20px; max-width: 560px; margin: 0 auto; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box; }
+        textarea { min-height: 80px; }
+        button { margin-top: 16px; padding: 8px 20px; cursor: pointer; }
+        a.back { display: inline-block; margin-bottom: 16px; color: #08f; }
+        .images-section { margin-top: 10px; }
+        .images-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; min-height: 40px; }
+        .image-slot { position: relative; width: 80px; height: 80px; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; background: #f5f5f5; }
+        .image-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .image-slot .remove { position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; border: none; background: rgba(0,0,0,0.7); color: #fff; font-size: 14px; line-height: 1; cursor: pointer; border-radius: 4px; padding: 0; }
+        .image-slot .remove:hover { background: #c00; }
+        .upload-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+        .btn-upload { background: #08f; color: #fff; border: none; padding: 8px 14px; cursor: pointer; border-radius: 4px; font-size: 14px; }
+        .btn-upload:hover { background: #06c; }
+        .btn-upload:disabled { background: #999; cursor: not-allowed; }
+        .add-url { display: flex; gap: 6px; margin-top: 6px; }
+        .add-url input { flex: 1; margin-top: 0; }
+        .add-url button { flex: 0 0 auto; margin-top: 0; padding: 6px 12px; }
+        .images-hint { font-size: 12px; color: #666; font-weight: normal; margin-top: 2px; }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('portal_inventory') }}" class="back">← Back to inventory</a>
+    <h1>{% if item %}Edit{% else %}Add{% endif %} item</h1>
+    <form method="post" id="inventory-form">
+        <label>Name</label>
+        <input type="text" name="name" value="{{ item.name if item else '' }}" required>
+
+        <label>Description</label>
+        <textarea name="description">{{ item.description if item else '' }}</textarea>
+
+        <label>Images <span class="images-hint">(up to 8; first is used as main image)</span></label>
+        <div class="images-section">
+            <div class="images-list" id="images-list" data-max="8">
+                {% for img in (item.images if item and item.images else ([item.image] if item and item.image else [])) %}
+                <div class="image-slot" data-path="{{ img }}">
+                    <input type="hidden" name="images" value="{{ img }}">
+                    {% if img.startswith('http://') or img.startswith('https://') %}
+                    <img src="{{ img }}" alt="">
+                    {% else %}
+                    <img src="{{ url_for('static', filename=img) }}" alt="">
+                    {% endif %}
+                    <button type="button" class="remove" aria-label="Remove image">×</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="upload-actions">
+                <input type="file" id="file-input" accept="image/*" multiple style="display:none">
+                <button type="button" class="btn-upload" id="btn-upload">Upload image</button>
+                <div class="add-url">
+                    <input type="text" id="url-input" placeholder="Or paste image URL and click Add">
+                    <button type="button" id="btn-add-url">Add URL</button>
+                </div>
+            </div>
+        </div>
+
+        <label>Category</label>
+        <input type="text" name="category" value="{{ item.category if item else 'rental' }}" placeholder="rental, sale, product">
+
+        <label>Price (optional)</label>
+        <input type="text" name="price" value="{{ item.price if item else '' }}">
+
+        <label>Link (optional)</label>
+        <input type="text" name="link" value="{{ item.link if item else '' }}">
+
+        <label>Sort order</label>
+        <input type="number" name="sort_order" value="{{ item.sort_order if item else 0 }}">
+
+        <button type="submit">Save</button>
+    </form>
+
+    <script>
+(function () {
+  var MAX = 8;
+  var list = document.getElementById('images-list');
+  var fileInput = document.getElementById('file-input');
+  var btnUpload = document.getElementById('btn-upload');
+  var urlInput = document.getElementById('url-input');
+  var btnAddUrl = document.getElementById('btn-add-url');
+  var uploadUrl = '{{ url_for("api_upload_image") }}';
+
+  function count() {
+    return list.querySelectorAll('input[name="images"]').length;
+  }
+
+  function addSlot(path, isUrl) {
+    if (count() >= MAX) return;
+    var div = document.createElement('div');
+    div.className = 'image-slot';
+    div.setAttribute('data-path', path);
+    var hidden = document.createElement('input');
+    hidden.type = 'hidden';
+    hidden.name = 'images';
+    hidden.value = path;
+    div.appendChild(hidden);
+    var img = document.createElement('img');
+    img.alt = '';
+    if (isUrl && (path.indexOf('http://') === 0 || path.indexOf('https://') === 0)) {
+      img.src = path;
+    } else {
+      img.src = path.indexOf('/') === 0 ? path : '/static/' + path;
+    }
+    div.appendChild(img);
+    var remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'remove';
+    remove.setAttribute('aria-label', 'Remove image');
+    remove.textContent = '×';
+    remove.onclick = function () {
+      div.remove();
+      updateUploadState();
+    };
+    div.appendChild(remove);
+    list.appendChild(div);
+    updateUploadState();
+  }
+
+  function updateUploadState() {
+    var n = count();
+    btnUpload.disabled = n >= MAX;
+  }
+
+  btnUpload.onclick = function () {
+    if (count() >= MAX) return;
+    fileInput.click();
+  };
+
+  fileInput.onchange = function () {
+    var files = fileInput.files;
+    if (!files || files.length === 0) return;
+    for (var i = 0; i < files.length && count() < MAX; i++) {
+      (function (file) {
+        var fd = new FormData();
+        fd.append('file', file);
+        fetch(uploadUrl, { method: 'POST', body: fd })
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            if (j.error) throw new Error(j.error);
+            var path = j.path || (j.url ? j.url.replace(/^.*\/static\//, '') : '');
+            if (!path && j.url) path = 'uploads/' + j.url.split('/').pop();
+            addSlot(path, false);
+          })
+          .catch(function (e) { alert('Upload failed: ' + (e.message || e)); });
+      })(files[i]);
+    }
+    fileInput.value = '';
+  };
+
+  btnAddUrl.onclick = function () {
+    var url = (urlInput.value || '').trim();
+    if (!url) return;
+    if (count() >= MAX) { alert('Maximum 8 images.'); return; }
+    addSlot(url, true);
+    urlInput.value = '';
+  };
+
+  list.addEventListener('click', function (e) {
+    if (e.target.classList.contains('remove')) {
+      e.target.closest('.image-slot').remove();
+      updateUploadState();
+    }
+  });
+
+  updateUploadState();
+})();
+    </script>
+</body>
+</html>

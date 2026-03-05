@@ -1,0 +1,77 @@
+/* Phase 4: Portal edit mode styles */
+.portal-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.portal-toolbar-bottom {
+    top: auto;
+    bottom: 0;
+}
+.portal-save-btn {
+    background: #c00;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.portal-save-btn:hover {
+    background: #a00;
+}
+.portal-view-site, .portal-toolbar a {
+    color: #8cf;
+    text-decoration: none;
+}
+.portal-view-site:hover, .portal-toolbar a:hover {
+    text-decoration: underline;
+}
+body { padding-top: 160px !important; }
+.portal-toolbar-bottom { padding: 10px 20px; }
+
+[contenteditable="true"] {
+    outline: 1px dashed rgba(0,100,200,0.4);
+    outline-offset: 2px;
+    min-height: 1em;
+}
+[contenteditable="true"]:focus {
+    outline-color: #08f;
+    background: rgba(0,100,200,0.06);
+}
+
+.portal-change-image {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.portal-change-image.small { padding: 4px 8px; font-size: 11px; }
+.hero-bg, .promo-tile-img, .visit-map { position: relative; }
+.brands-logo-wrap { position: relative; display: inline-block; }
+
+.portal-section-controls { margin-bottom: 10px; }
+.portal-manage-inventory { color: #08f; }
+
+.portal-save-status {
+    margin-left: 10px;
+    font-size: 13px;
+}
+.portal-save-status.ok { color: #6c6; }
+.portal-save-status.err { color: #f66; }

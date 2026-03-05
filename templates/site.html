@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ content.meta.title | default('Bentonville Bike Co') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='topbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sections.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    {% if edit_mode %}<link rel="stylesheet" href="{{ url_for('static', filename='portal.css') }}">{% endif %}
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            padding-top: 120px;
+        }
+    </style>
+</head>
+<body>
+    {% if edit_mode %}
+    <div class="portal-toolbar">
+        <button type="button" class="portal-save-btn">Save</button>
+        <a href="{{ url_for('index') }}" target="_blank" class="portal-view-site">View site</a>
+        <a href="{{ url_for('portal_inventory') }}">Inventory</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    {% endif %}
+
+    {% if content.topbar.visible | default(true) %}
+    <div class="topbar">
+        <div class="topbar-inner">
+            <span class="topbar-left" {% if edit_mode %}contenteditable="true" data-field="topbar.promo"{% endif %}>{{ content.topbar.promo }}</span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-center">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                <span {% if edit_mode %}contenteditable="true" data-field="topbar.phone"{% endif %}>{{ content.topbar.phone }}</span>
+            </span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-center">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
+                <span {% if edit_mode %}contenteditable="true" data-field="topbar.address"{% endif %}>{{ content.topbar.address }}</span>
+            </span>
+            <span class="topbar-sep" aria-hidden="true"></span>
+            <span class="topbar-right">
+                <span class="topbar-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                <span {% if edit_mode %}contenteditable="true" data-field="topbar.email"{% endif %}>{{ content.topbar.email }}</span>
+            </span>
+        </div>
+    </div>
+    {% endif %}
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="{{ content.header.logo_href }}" class="logo">
+                <span class="logo-mark" {% if edit_mode %}contenteditable="true" data-field="header.logo_line1"{% endif %}>{{ content.header.logo_line1 }}</span>
+                <span class="logo-place" {% if edit_mode %}contenteditable="true" data-field="header.logo_line2"{% endif %}>{{ content.header.logo_line2 }}</span>
+            </a>
+            <nav>
+                <ul class="navbar">
+                    {% for item in content.header.nav_items %}
+                    <li><a href="{{ item.href }}" {% if item.active %}class="active"{% endif %} {% if edit_mode %}data-field-label="header.nav_items.{{ loop.index0 }}.label" data-field-href="header.nav_items.{{ loop.index0 }}.href" contenteditable="true"{% endif %}>{{ item.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-bg" style="background-image: url('{{ content.hero.background_image | static_asset }}');" {% if edit_mode %}data-field="hero.background_image" data-value="{{ content.hero.background_image }}" data-image-slot="hero"{% endif %}>
+                {% if edit_mode %}<button type="button" class="portal-change-image" data-field="hero.background_image">Change image</button>{% endif %}
+            </div>
+            <div class="hero-content">
+                <p class="hero-tagline" {% if edit_mode %}contenteditable="true" data-field="hero.tagline"{% endif %}>{{ content.hero.tagline }}</p>
+                <h1 class="hero-title" {% if edit_mode %}contenteditable="true" data-field="hero.title"{% endif %}>{{ content.hero.title | safe }}</h1>
+                <div class="hero-buttons">
+                    <a href="{{ content.hero.button1_href }}" class="hero-btn" {% if edit_mode %}data-field-text="hero.button1_text" data-field-href="hero.button1_href" contenteditable="true"{% endif %}>{{ content.hero.button1_text }}</a>
+                    <a href="{{ content.hero.button2_href }}" class="hero-btn" {% if edit_mode %}data-field-text="hero.button2_text" data-field-href="hero.button2_href" contenteditable="true"{% endif %}>{{ content.hero.button2_text }}</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <div class="intro-inner">
+                <h2 {% if edit_mode %}contenteditable="true" data-field="intro.heading"{% endif %}>{{ content.intro.heading }}</h2>
+                <p class="intro-lead" {% if edit_mode %}contenteditable="true" data-field="intro.lead"{% endif %}>{{ content.intro.lead }}</p>
+                {% for p in content.intro.paragraphs %}
+                <p {% if edit_mode %}contenteditable="true" data-field="intro.paragraphs.{{ loop.index0 }}"{% endif %}>{{ p }}</p>
+                {% endfor %}
+                <p><strong {% if edit_mode %}contenteditable="true" data-field="intro.hours"{% endif %}>{{ content.intro.hours }}</strong></p>
+            </div>
+        </section>
+
+        <section class="promo-strip">
+            <h2 class="promo-strip-title" {% if edit_mode %}contenteditable="true" data-field="promo_strip.title"{% endif %}>{{ content.promo_strip.title }}</h2>
+            <div class="promo-tiles">
+                {% for tile in content.promo_strip.tiles %}
+                <a href="{{ tile.href }}" class="promo-tile" {% if edit_mode %}data-field-href="promo_strip.tiles.{{ loop.index0 }}.href"{% endif %}>
+                    <div class="promo-tile-img" style="background-image: url('{{ tile.image | static_asset }}');" {% if edit_mode %}data-field="promo_strip.tiles.{{ loop.index0 }}.image" data-value="{{ tile.image }}"{% endif %}>
+                        {% if edit_mode %}<button type="button" class="portal-change-image" data-field="promo_strip.tiles.{{ loop.index0 }}.image">Change image</button>{% endif %}
+                    </div>
+                    <span class="promo-tile-label" {% if edit_mode %}contenteditable="true" data-field="promo_strip.tiles.{{ loop.index0 }}.label"{% endif %}>{{ tile.label }}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <div class="quick-links-inner">
+                {% for link in content.quick_links %}
+                <a href="{{ link.href }}" class="quick-link" {% if edit_mode %}contenteditable="true" data-field-text="quick_links.{{ loop.index0 }}.text" data-field-href="quick_links.{{ loop.index0 }}.href"{% endif %}>{{ link.text }}</a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="brands">
+            <h3 class="brands-title" {% if edit_mode %}contenteditable="true" data-field="brands.title"{% endif %}>{{ content.brands.title }}</h3>
+            <div class="brands-logos">
+                {% for logo in content.brands.logos %}
+                <span class="brands-logo-wrap">
+                    {% if logo.link %}<a href="{{ logo.link }}">{% endif %}
+                    <img src="{{ logo.image | static_asset }}" alt="{{ logo.alt }}" {% if edit_mode %}data-field="brands.logos.{{ loop.index0 }}.image" data-value="{{ logo.image }}"{% endif %}>
+                    {% if edit_mode %}<button type="button" class="portal-change-image small" data-field="brands.logos.{{ loop.index0 }}.image">Change</button>{% endif %}
+                    {% if logo.link %}</a>{% endif %}
+                </span>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="rental-lineup" id="rentals">
+            <h2 class="section-title" {% if edit_mode %}contenteditable="true" data-field="rental_section.title"{% endif %}>{{ content.rental_section.title }}</h2>
+            {% if edit_mode %}
+            <div class="portal-section-controls">
+                <label><input type="checkbox" data-field="rental_section.use_inventory" {% if content.rental_section.use_inventory %}checked{% endif %}> Use inventory for this section</label>
+                <label>Category: <input type="text" data-field="rental_section.inventory_category" value="{{ content.rental_section.inventory_category | default('rental') }}" style="width:100px;"></label>
+                <a href="{{ url_for('portal_inventory') }}" class="portal-manage-inventory">Manage inventory items</a>
+            </div>
+            {% endif %}
+            <div class="rental-grid">
+                {% for card in rental_cards %}
+                <a href="{{ card.href }}" class="rental-card">
+                    <div class="rental-card-img"><img src="{{ card.image }}" alt=""></div>
+                    <h4>{{ card.title }}</h4>
+                    <p>{{ card.description }}</p>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="ride-to-buy">
+            <div class="ride-to-buy-inner">
+                <h2 {% if edit_mode %}contenteditable="true" data-field="ride_to_buy.heading"{% endif %}>{{ content.ride_to_buy.heading }}</h2>
+                <p class="ride-to-buy-tagline" {% if edit_mode %}contenteditable="true" data-field="ride_to_buy.tagline"{% endif %}>{{ content.ride_to_buy.tagline }}</p>
+                <a href="{{ content.ride_to_buy.button_href }}" class="ride-to-buy-btn" {% if edit_mode %}data-field-text="ride_to_buy.button_text" data-field-href="ride_to_buy.button_href" contenteditable="true"{% endif %}>{{ content.ride_to_buy.button_text }}</a>
+            </div>
+        </section>
+
+        <section class="visit" id="contact">
+            <h2 class="section-title" {% if edit_mode %}contenteditable="true" data-field="visit.title"{% endif %}>{{ content.visit.title }}</h2>
+            <div class="visit-inner">
+                <div class="visit-info">
+                    <p {% if edit_mode %}contenteditable="true" data-field="visit.hours"{% endif %}>{{ content.visit.hours | safe }}</p>
+                    <p {% if edit_mode %}contenteditable="true" data-field="visit.address_block"{% endif %}>{{ content.visit.address_block | safe }}</p>
+                    <p>
+                        {% for link in content.visit.links %}
+                        <a href="{{ link.href }}" {% if edit_mode %}data-field-text="visit.links.{{ loop.index0 }}.text" data-field-href="visit.links.{{ loop.index0 }}.href" contenteditable="true"{% endif %}>{{ link.text }}</a>{% if not loop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </p>
+                    <p class="visit-phone" {% if edit_mode %}contenteditable="true" data-field="visit.phone"{% endif %}>{{ content.visit.phone }}</p>
+                    <a href="{{ content.visit.cta_href }}" class="visit-contact-btn" {% if edit_mode %}data-field-text="visit.cta_text" data-field-href="visit.cta_href" contenteditable="true"{% endif %}>{{ content.visit.cta_text }}</a>
+                </div>
+                <div class="visit-map">
+                    <img src="{{ content.visit.map_image | static_asset }}" alt="Map" {% if edit_mode %}data-field="visit.map_image" data-value="{{ content.visit.map_image }}"{% endif %}>
+                    {% if edit_mode %}<button type="button" class="portal-change-image" data-field="visit.map_image">Change map image</button>{% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            {% for col in content.footer.columns %}
+            {% set col_idx = loop.index0 %}
+            <div class="footer-col">
+                <h4 {% if edit_mode %}contenteditable="true" data-field="footer.columns.{{ col_idx }}.title"{% endif %}>{{ col.title }}</h4>
+                {% if col.links %}
+                <ul>
+                    {% for link in col.links %}
+                    <li><a href="{{ link.href }}" {% if edit_mode %}data-field-text="footer.columns.{{ col_idx }}.links.{{ loop.index0 }}.text" data-field-href="footer.columns.{{ col_idx }}.links.{{ loop.index0 }}.href" contenteditable="true"{% endif %}>{{ link.text }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p {% if edit_mode %}contenteditable="true" data-field="footer.address_block"{% endif %}>{{ content.footer.address_block | safe }}</p>
+                <p><strong {% if edit_mode %}contenteditable="true" data-field="footer.newsletter_heading"{% endif %}>{{ content.footer.newsletter_heading }}</strong></p>
+                <form class="footer-newsletter" action="#" method="post">
+                    <input type="email" placeholder="Email" aria-label="Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="footer-copy" {% if edit_mode %}contenteditable="true" data-field="footer.copyright"{% endif %}>{{ content.footer.copyright | safe }}</div>
+    </footer>
+
+    {% if edit_mode %}
+    <div class="portal-toolbar portal-toolbar-bottom">
+        <button type="button" class="portal-save-btn">Save</button>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <script>window.__INITIAL_CONTENT__ = {{ content | tojson }};</script>
+    <script src="{{ url_for('static', filename='portal.js') }}"></script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+/* Rental grid cards – image + title + tagline (like Poison Spider lineup) */
+.rental-card {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.rental-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.rental-card-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  background: #eee;
+}
+
+.rental-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rental-card h4 {
+  margin: 0.75rem 1rem 0.25rem;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.rental-card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
+}

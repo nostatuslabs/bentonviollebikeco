@@ -1,0 +1,331 @@
+/* Hero – full-width background, centered content */
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-tagline {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 800;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #c00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.hero-btn:hover {
+  background: #a00;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 500px;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Intro block */
+.intro {
+  padding: 2.5rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem;
+}
+
+.intro-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.intro p {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+/* Promo strip – Spring Thaw Sale */
+.promo-strip {
+  padding: 2rem 1.5rem;
+  background: #f5f5f5;
+}
+
+.promo-strip-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.promo-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.promo-tile {
+  flex: 1 1 280px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.promo-tile:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.promo-tile-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.promo-tile-label {
+  padding: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Quick links row */
+.quick-links {
+  padding: 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.quick-links-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quick-link {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.quick-link:hover {
+  color: #c00;
+}
+
+/* Brands */
+.brands {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.brands-title {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+}
+
+.brands-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.brands-logos img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Rental lineup */
+.rental-lineup {
+  padding: 2.5rem 1.5rem;
+  background: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.rental-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Ride to Buy CTA */
+.ride-to-buy {
+  padding: 2.5rem 1.5rem;
+  background: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.ride-to-buy-inner {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ride-to-buy h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.ride-to-buy-tagline {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.ride-to-buy-btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.ride-to-buy-btn:hover {
+  background: #eee;
+}
+
+/* Visit Us */
+.visit {
+  padding: 2.5rem 1.5rem;
+}
+
+.visit-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.visit-info {
+  flex: 1 1 300px;
+}
+
+.visit-info p {
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.visit-phone {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.visit-contact-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: #c00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.visit-contact-btn:hover {
+  background: #a00;
+}
+
+.visit-map {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.visit-map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+  .visit-inner {
+    flex-direction: column;
+  }
+}
